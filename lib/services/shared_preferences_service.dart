@@ -40,7 +40,6 @@ class SharedPreferencesService {
 
     final SharedPreferences prefs = await _prefs;
     try{
-      print("Value: $value");
       prefs.setBool("firstInteraction", value);
     }catch(e){
       throw Exception(e);

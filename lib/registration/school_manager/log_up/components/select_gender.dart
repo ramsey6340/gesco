@@ -52,7 +52,7 @@ class _SelectGenderState extends State<SelectGender> {
                     title: 'Homme',
                     imagePath: 'images/man.png',
                   ),
-                  SizedBox(width: getProportionateScreenWidth(mediaQueryData, kDefaultPadding*2),),
+                  kDefaultPaddingWidth,
                   RadioGender(
                     radioValue: GenderType.women,
                     radioGroupValue: _selectedGender,
@@ -71,7 +71,7 @@ class _SelectGenderState extends State<SelectGender> {
                   ),
                 ],
               ),
-              SizedBox(height: getProportionateScreenWidth(mediaQueryData, kDefaultPadding*2),),
+              kDefaultPaddingHeightDouble,
               // ========================Gestion du bouton asynchrone====================
               AsyncTextBtn(
                 style: kStyleNextBtn,
@@ -148,9 +148,7 @@ class _SelectGenderState extends State<SelectGender> {
               ),
               // ========================Fin de la gestion du bouton asynchrone====================
               // Retour à la page précedente
-              const SizedBox(
-                height: 20,
-              ),
+              kDefaultPaddingHeight,
               TextNavigator(
                 onTap: () {
                   logUpCurrentPageProvider.previousLogUpPage();

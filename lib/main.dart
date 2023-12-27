@@ -1,3 +1,4 @@
+import 'package:flutter_spacer/flutter_spacer.dart';
 import 'package:gesco/providers/log_up_current_page_provider.dart';
 import 'package:gesco/routes.dart';
 import 'package:gesco/splash/splash_screen.dart';
@@ -22,14 +23,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.getTheme(),
-      //home: ProcessTimelinePage(),
-      title: 'Gesco',
-      routes: routes,
-      initialRoute: SplashScreen.routeName,
-    );
+    return FlutterSpacer(builder: (context){
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.getTheme(),
+        //home: ProcessTimelinePage(),
+        title: 'Gesco',
+        routes: routes,
+        initialRoute: SplashScreen.routeName,
+      );
+    });
   }
 }
 

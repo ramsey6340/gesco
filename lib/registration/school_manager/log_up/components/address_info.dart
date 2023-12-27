@@ -51,6 +51,7 @@ class _AddressInfoState extends State<AddressInfo> {
                 onStateSelected: (value) {},
                 onCitySelected: (value) {},
               ),
+              kDefaultPaddingHeightDouble,
               // ========================Gestion du bouton asynchrone====================
               TextButton(
                   style: kStyleNextBtn,
@@ -72,9 +73,7 @@ class _AddressInfoState extends State<AddressInfo> {
               ),
               // ========================Fin de la gestion du bouton asynchrone====================
               // Retour à la page précedente
-              const SizedBox(
-                height: 20,
-              ),
+              kDefaultPaddingHeight,
               TextNavigator(onTap: (){
                 logUpCurrentPageProvider.previousLogUpPage();
               }, ),

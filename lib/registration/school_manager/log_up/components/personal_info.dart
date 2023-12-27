@@ -81,7 +81,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   _pickImage();
                 },
               ),
-              SizedBox(height: kDefaultPadding),
+              kDefaultPaddingHeightDouble, // espacement vertical
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,7 +138,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 ],
               ),
 
-              SizedBox(height: kDefaultPadding),
+              kDefaultPaddingHeightDouble, // espacement vertical
               // ========================Gestion du bouton asynchrone====================
               TextButton(
                 style: kStyleNextBtn,
@@ -153,9 +153,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
               ),
               // ========================Fin de la gestion du bouton asynchrone====================
               // Retour à la page précedente
-              const SizedBox(
-                height: 20,
-              ),
+              kDefaultPaddingHeight,
               TextNavigator(
                 onTap: () {
                   logUpCurrentPageProvider.previousLogUpPage();

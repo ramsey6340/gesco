@@ -1,20 +1,21 @@
 import 'package:country_picker_plus/country_picker_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spacer/flutter_spacer.dart';
 
 const Color kPrimaryColor = Colors.blue;
 const kTextColor = Color(0xFF757575);
 
 // les couleurs du stepper
-Color completeColor = kPrimaryColor;
-Color  inProgressColor =Color(0xff5e6172);
-Color  todoColor = Color(0xffd1d2d7);
+Color kCompleteColor = kPrimaryColor;
+Color  kInProgressColor =Color(0xff5e6172);
+Color  kTodoColor = Color(0xffd1d2d7);
 
 const kCreateProfileTextsList = [
   ["Créer un compte", "Veuillez renseigner vos informations de compte"],
   ["Vérification OTP", "Saisissez le code OTP que nous vous avons envoyé par email"],
   ["Localisation", "Ces informations nous aiderons a mieux vous connaitre pour vous offrire les meilleurs services"],
   ["Profile", "Veuillez fournir des informations complémentaires sur vous"],
-  ["Quel est votre sexe", ""],
+  ["Quel est votre sexe", "Veuillez renseigner votre sexe"],
 ];
 
 class GenderType {
@@ -59,8 +60,11 @@ final otpFieldDecoration = InputDecoration(
   ),
 );
 
-const kDefaultPadding = 20.0;
-const kDefaultPaddingLogUpPage = 50.0;
+SizedBox kDefaultPaddingHeight = 2.hs;
+SizedBox kDefaultPaddingHeightDouble = 4.hs;
+SizedBox kDefaultPaddingWidth = 2.ws;
+SizedBox kDefaultPaddingLogUpPage = 5.hs;
+//const kDefaultPaddingLogUpPage = 50.0;
 const kDefaultOTPPadding = 8.0;
 const kDefaultOTPFieldWidth = 70.0;
 const kInputBorderRadius = 5.0;

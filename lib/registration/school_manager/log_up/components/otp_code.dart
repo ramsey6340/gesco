@@ -71,9 +71,7 @@ class _OtpCodeState extends State<OtpCode> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Le code expirera dans ...",
-                  ),
+                  Text("Le code expirera dans ...",),
                   TweenAnimationBuilder(
                     tween: Tween(begin: 30.0, end: 0.0),
                     duration: const Duration(seconds: 30),
@@ -86,13 +84,9 @@ class _OtpCodeState extends State<OtpCode> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: kDefaultPaddingLogUpPage,
-              ),
+              kDefaultPaddingLogUpPage, // espacement
               otpInput(),
-              SizedBox(
-                height: kDefaultPadding,
-              ),
+              kDefaultPaddingHeightDouble, // espacement vertical
               // ========================Gestion du bouton asynchrone====================
               TextButton(
                   style: kStyleNextBtn,
@@ -105,9 +99,7 @@ class _OtpCodeState extends State<OtpCode> {
                           fontWeight: FontWeight.bold,
                           fontSize: 18))),
               // ========================Fin de la gestion du bouton asynchrone====================
-              const SizedBox(
-                height: 20,
-              ),
+              kDefaultPaddingHeight,
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -121,9 +113,7 @@ class _OtpCodeState extends State<OtpCode> {
               ),
 
               // Retour à la page précedente
-              const SizedBox(
-                height: 20,
-              ),
+              kDefaultPaddingHeight,
               TextNavigator(
                 onTap: () {
                   logUpCurrentPageProvider.previousLogUpPage();

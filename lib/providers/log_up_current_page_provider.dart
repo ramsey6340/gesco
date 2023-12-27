@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gesco/registration/school_manager/log_up/components/create_profile.dart';
-
-import '../constantes.dart';
 import '../registration/school_manager/log_up/components/address_info.dart';
 import '../registration/school_manager/log_up/components/otp_code.dart';
 import '../registration/school_manager/log_up/components/personal_info.dart';
@@ -21,11 +19,9 @@ class LogUpCurrentPageProvider with ChangeNotifier {
   Widget currentPage = CreateProfile();
 
   int _currentPageIndex = 0;
-  Color _stepColor = Colors.blue;
 
   int get currentPageIndex => _currentPageIndex;
   int get lengthLogUpPages => _lengthLogUpPages;
-  Color get stepColor => _stepColor;
 
   void initCurrentPageIndex() {
     _currentPageIndex = 0;
@@ -48,15 +44,5 @@ class LogUpCurrentPageProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void setStepColor(int index) {
-    if (index == _currentPageIndex) {
-      _stepColor = inProgressColor;
-    } else if (index < _currentPageIndex) {
-      _stepColor = completeColor;
-    } else {
-      _stepColor = todoColor;
-    }
-    notifyListeners();
-  }
 
 }

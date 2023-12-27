@@ -133,9 +133,7 @@ class _CreateProfileState extends State<CreateProfile> {
                   hintText: 'Ex: ***********',
                 ),
 
-              const SizedBox(
-                height: kDefaultPadding,
-              ),
+              kDefaultPaddingHeightDouble,
               // ========================Gestion du bouton asynchrone====================
               TextButton(
                   style: kStyleNextBtn,
@@ -148,9 +146,7 @@ class _CreateProfileState extends State<CreateProfile> {
                           fontWeight: FontWeight.bold,
                           fontSize: 18))),
               // ========================Fin de la gestion du bouton asynchrone====================
-              const SizedBox(
-                height: kDefaultPadding,
-              ),
+              kDefaultPaddingHeight,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

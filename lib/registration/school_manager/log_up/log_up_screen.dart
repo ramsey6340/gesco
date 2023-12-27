@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spacer/flutter_spacer.dart';
 import 'package:gesco/constantes.dart';
 import 'package:provider/provider.dart';
 import 'package:timelines/timelines.dart';
@@ -8,13 +9,31 @@ import 'package:timelines/timelines.dart';
 import '../../../providers/log_up_current_page_provider.dart';
 import '../../../widgets/bezier_painter.dart';
 
-class LogUpScreen extends StatelessWidget {
+class LogUpScreen extends StatefulWidget {
   static const routeName = 'log_up_screen';
   const LogUpScreen({super.key});
 
   @override
+  State<LogUpScreen> createState() => _LogUpScreenState();
+}
+
+class _LogUpScreenState extends State<LogUpScreen> {
+
+  /*int _processIndex = 0;
+
+  Color getColor(int index) {
+    if (index == _processIndex) {
+      return kInProgressColor;
+    } else if (index < _processIndex) {
+      return kCompleteColor;
+    } else {
+      return kTodoColor;
+    }
+  }*/
+
+  @override
   Widget build(BuildContext context) {
-    final logUpCurrentPageProvider = Provider.of<LogUpCurrentPageProvider>(context);
+    //final logUpCurrentPageProvider = Provider.of<LogUpCurrentPageProvider>(context);
 
     return Scaffold(
       backgroundColor: Colors.blueGrey[50],
@@ -56,7 +75,7 @@ class LogUpScreen extends StatelessWidget {
                           var color;
                           var child;
                           if (index == logUpCurrentPageProvider.currentPageIndex) {
-                            color = inProgressColor;
+                            color = kInProgressColor;
                             child = Padding(
                               padding: const EdgeInsets.only(bottom: 3.0),
                               child: Center(child: Text(logUpCurrentPageProvider.currentPageIndex.toString(),
@@ -65,14 +84,14 @@ class LogUpScreen extends StatelessWidget {
                                       fontWeight: FontWeight.bold))),
                             );
                           } else if (index < logUpCurrentPageProvider.currentPageIndex) {
-                            color = completeColor;
+                            color = kCompleteColor;
                             child = Icon(
                               Icons.check,
                               color: Colors.white,
                               size: 15.0,
                             );
                           } else {
-                            color = todoColor;
+                            color = kTodoColor;
                           }
 
                           if (index <= logUpCurrentPageProvider.currentPageIndex) {
@@ -114,10 +133,9 @@ class LogUpScreen extends StatelessWidget {
                         connectorBuilder: (_, index, type) {
                           if (index > 0) {
                             if (index == logUpCurrentPageProvider.currentPageIndex) {
-                              logUpCurrentPageProvider.setStepColor(index - 1);
-                              final prevColor = logUpCurrentPageProvider.stepColor;
-                              logUpCurrentPageProvider.setStepColor(index);
-                              final color = logUpCurrentPageProvider.stepColor;
+                              int currentIndex = logUpCurrentPageProvider.currentPageIndex;
+                              final prevColor = ((index - 1)==currentIndex)?kInProgressColor:((index - 1)<currentIndex)?kCompleteColor:kTodoColor;
+                              final color = (index==currentIndex)?kInProgressColor:(index<currentIndex)?kCompleteColor:kTodoColor;
                               List<Color> gradientColors;
                               if (type == ConnectorType.start) {
                                 gradientColors = [Color.lerp(prevColor, color, 0.5)!, color];
@@ -135,9 +153,9 @@ class LogUpScreen extends StatelessWidget {
                                 ),
                               );
                             } else {
-                              logUpCurrentPageProvider.setStepColor(index);
+                              int currentIndex = logUpCurrentPageProvider.currentPageIndex;
                               return SolidLineConnector(
-                                color: logUpCurrentPageProvider.stepColor,
+                                color: (index==currentIndex)?kInProgressColor:(index<currentIndex)?kCompleteColor:kTodoColor,
                               );
                             }
                           } else {
@@ -151,7 +169,7 @@ class LogUpScreen extends StatelessWidget {
                   Text(kCreateProfileTextsList[logUpCurrentPageProvider.currentPageIndex][0],
                     style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
                   Text(kCreateProfileTextsList[logUpCurrentPageProvider.currentPageIndex][1],),
-                  (logUpCurrentPageProvider.currentPageIndex==1)?SizedBox():SizedBox(height: kDefaultPaddingLogUpPage,),
+                  (logUpCurrentPageProvider.currentPageIndex==1)?0.hs:kDefaultPaddingLogUpPage,
                   Expanded(child: logUpCurrentPageProvider.currentPage)
                 ]
               ),
